@@ -1,0 +1,83 @@
+.restaurants-orders-tab {
+  width: 100%;
+
+  .restaurants-orders-tab__container {
+    width: 100%;
+
+    .restaurants-orders-tab__container__header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .restaurants-orders-tab__container__header__title {
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+    }
+
+    .restaurants-orders-tab__container__body__table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+        width: 100%;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #e0e0e0;
+
+        tr {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 0;
+          border-bottom: 1px solid #e0e0e0;
+
+          th {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0 1rem;
+          }
+        }
+      }
+
+      tbody {
+        width: 100%;
+
+        tr {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 0;
+          border-bottom: 1px solid #e0e0e0;
+
+          td {
+            font-size: 1rem;
+            padding: 0 1rem;
+
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+            }
+
+            button {
+              background-color: #5956d6;
+              color: white;
+              font-family: var(--font-secondary);
+              border: none;
+              padding: 0.5rem 1rem;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: all 0.3s;
+
+              &:hover {
+                background-color: #e0e0e0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

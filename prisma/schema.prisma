@@ -1,0 +1,134 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql" 
+  url      = env("DATABASE_URL")
+}
+
+model Utilisateur {
+  id_utilisateur       Int       @id @default(autoincrement())
+  nom                  String
+  email                String    @unique
+  mot_de_passe         String
+  adresse              String
+  role                 Role
+  statut_disponibilite Boolean?  // Optionnel, uniquement pour les livreurs
+  commandes            Commande[]
+  livreur              Livreur?
+  restaurant Restaurant?
+
+  @@map("utilisateur")
+}
+
+model Livreur {
+  id_livreur           Int       @id @default(autoincrement())
+  id_utilisateur       Int       @unique
+  utilisateur          Utilisateur @relation(fields: [id_utilisateur], references: [id_utilisateur])
+  vehicule             String
+  statut_disponibilite Boolean
+
+  @@map("livreur")
+}
+
+model Restaurant {
+  id_restaurant  Int       @id @default(autoincrement())
+  nom            String
+  adresse        String
+  type_cuisine   String
+  horaires       String
+  email          String?
+  phone          String?
+  website        String?
+  image_url      String?   // Ajout du champ pour l'URL de l'image
+  icon_url       String?   // Ajout du champ pour l'URL de l'icône
+  produits       Produit[]
+  Commande Commande[]
+  id_utilisateur Int       @unique
+  utilisateur    Utilisateur @relation(fields: [id_utilisateur], references: [id_utilisateur])
+
+  @@map("restaurant")
+}
+
+model Produit {
+  id_produit     Int       @id @default(autoincrement())
+  nom            String
+  description    String
+  prix           Float
+  id_restaurant  Int
+  restaurant     Restaurant @relation(fields: [id_restaurant], references: [id_restaurant])
+  commandes      Commande_Produit[]
+  photo          String?   // Ajout du champ photo
+  category       String    // Nouveau champ pour la catégorie
+
+  @@map("produit")
+}
+
+model Commande {
+  id_commande    Int       @id @default(autoincrement())
+  statut         Statut
+  total          Float
+  id_utilisateur Int
+  utilisateur    Utilisateur @relation(fields: [id_utilisateur], references: [id_utilisateur])
+  id_restaurant  Int
+  restaurant     Restaurant @relation(fields: [id_restaurant], references: [id_restaurant])
+  produits       Commande_Produit[]
+  paiements      Paiement[]
+
+  @@map("commande")
+}
+
+model Commande_Produit {
+  id_commande    Int
+  id_produit     Int
+  quantite       Int
+  commande       Commande @relation(fields: [id_commande], references: [id_commande])
+  produit        Produit  @relation(fields: [id_produit], references: [id_produit])
+
+  @@id([id_commande, id_produit])
+  @@map("commande_produit")
+}
+
+model Paiement {
+  id_paiement    Int       @id @default(autoincrement())
+  montant        Float
+  mode_paiement  ModePaiement
+  statut         StatutPaiement
+  id_commande    Int
+  commande       Commande @relation(fields: [id_commande], references: [id_commande])
+
+  @@map("paiement")
+}
+
+enum Role {
+  client
+  livreur
+  admin
+  restaurant // Ajoutez ce nouveau rôle
+}
+
+enum Statut {
+  en_attente
+  en_cours
+  livree
+  annulee
+}
+
+enum ModePaiement {
+  carte
+  paypal
+  especes
+}
+
+enum StatutPaiement {
+  en_attente
+  effectue
+  echoue
+}

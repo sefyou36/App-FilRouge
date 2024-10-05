@@ -1,0 +1,59 @@
+// src/styles/styles.scss (ou le nom de votre fichier SCSS)
+
+.Modal {
+    // Styles pour le contenu du modal
+    content {
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 700px; // Ajustez la largeur maximale selon vos besoins
+      margin: auto; 
+    }
+  }
+  
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  
+  // Styles pour l'iframe
+  .MapIframe {
+    width: 100%;
+    height: 450px; // Ajustez la hauteur selon vos besoins
+    border: 0;
+    border-radius: 8px;
+    margin-bottom: 10px; // Espace en bas
+  }
+  
+  // Styles pour le bouton "Fermer"
+  .CloseButton {
+    padding: 10px 15px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute; // Positionner en bas à droite
+    bottom: 20px;
+    right: 20px;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: var(--color-primary-dark); 
+    }
+  }
+  

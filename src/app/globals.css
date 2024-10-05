@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Rubik:ital@0;1&family=Ubuntu:wght@300;400;500;700&family=Rakkas:wght@400&display=swap");
+
+:root {
+  --color-primary: #78cfcf;
+  --color-primary-light: #a5e1e1;
+  --color-primary-dark: #4ba3a3;
+
+  --color-secondary: #ffd700;
+  --color-secondary-light: #ffecb3;
+  --color-secondary-dark: #ffc400;
+
+  --color-tertiary: #ffa07a;
+  --color-tertiary-light: #ffc09f;
+  --color-tertiary-dark: #ff7f50;
+
+  --color-text: #333;
+  --color-text-light: #fff;
+  --color-text-dark: #000;
+
+  --color-background: #f4f4f4;
+  --color-background-light: #fff;
+  --color-background-dark: #000;
+
+  --color-border: #ccc;
+  --color-border-light: #f4f4f4;
+  --color-border-dark: #333;
+
+  /* Fonts */
+
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Rubik", sans-serif;
+  --font-third: "Ubuntu", sans-serif;
+  --font-quaternary: "Rakkas", cursive;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-size: 16px;
+  font-family: var(--font-primary);
+  background-color: var(--color-bg-white);
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}

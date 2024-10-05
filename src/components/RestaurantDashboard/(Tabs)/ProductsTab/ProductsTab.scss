@@ -1,0 +1,134 @@
+.products-tab {
+  width: 100%;
+  height: 100%;
+
+  .products-tab__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 1rem 0;
+
+    .products-tab__container__header {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: var(--font-secondary);
+      }
+
+      .products-tab__container__header__search {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+
+        .products-tab__container__header__search__input {
+          display: flex;
+          align-items: center;
+          column-gap: 0.5rem;
+
+          input {
+            padding: 0.5rem 5rem 0.5rem 0.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+
+            &:focus {
+              border-color: #5956d6;
+            }
+          }
+
+          button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #5956d6;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: #4b48b0;
+            }
+          }
+        }
+
+        .products-tab__container__header__search__filter {
+          display: flex;
+          align-items: center;
+          column-gap: 0.5rem;
+
+          select {
+            padding: 0.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+
+            &:focus {
+              border-color: #5956d6;
+            }
+          }
+        }
+      }
+    }
+
+    .products-tab__content__body {
+      width: 100%;
+      margin: 30px 0;
+
+      .products-tab__content__body__table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        overflow: hidden;
+
+        thead {
+          background-color: #5956d6;
+          color: #fff;
+        }
+
+        th,
+        td {
+          padding: 1rem;
+          text-align: center;
+        }
+
+        tbody {
+          tr {
+            &:nth-child(even) {
+              background-color: #f9f9f9;
+            }
+
+            td {
+              border-bottom: 1px solid #e0e0e0;
+
+              button {
+                margin: 0 0.5rem;
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 5px;
+                background-color: #5956d6;
+                color: #fff;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                  background-color: #4b48b0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

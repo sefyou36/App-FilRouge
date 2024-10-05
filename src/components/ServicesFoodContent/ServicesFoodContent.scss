@@ -1,0 +1,146 @@
+.services_food {
+  width: 100%;
+  margin: 150px 0;
+
+  .services_food__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    flex-wrap: wrap;
+
+    .services_food__item {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 10px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+
+      .services_food__item__image {
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+
+      .services_food__item__body {
+        width: 100%;
+
+        .services_food__item__body__top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 20px;
+          margin: 10px 0;
+
+          .services_food__item__title {
+            font-size: 20px;
+            font-weight: 600;
+            font-family: var(--font-third);
+          }
+
+          .services_food__item__category {
+            font-size: 13px;
+            font-weight: 500;
+            font-family: var(--font-primary);
+          }
+        }
+
+        .services_food__item__body__bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 10px;
+          padding: 0 20px;
+
+          .services_food__item__body__bottom__stars {
+            display: flex;
+            align-items: center;
+
+            .services_food__item__body__bottom__stars__icon {
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+
+            p {
+              font-size: 16px;
+              margin-left: 5px;
+              margin-bottom: 5px;
+            }
+          }
+
+          .services_food__item__body__bottom__price {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f1c40f;
+
+            p {
+              margin-bottom: 5px;
+            }
+          }
+        }
+
+        .services_food__item__button {
+          width: 100%;
+          padding: 10px 20px;
+          margin-top: 15px;
+          border: none;
+          border-radius: 5px 5px 10px 10px;
+          background-color: #f39c12;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media screen and (max-width: 1024px) {
+  .services_food {
+    .services_food__container {
+      .services_food__item {
+        width: 30%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services_food {
+    .services_food__container {
+      .services_food__item {
+        width: 45%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .services_food {
+    .services_food__container {
+      .services_food__item {
+        width: 100%;
+      }
+    }
+  }
+}
